@@ -17,3 +17,21 @@ def format_report(records: list[dict]) -> str:
     """
     # TODO: implement
     pass
+
+def format_report(records: list[dict])->str:
+  total_records=len(records)
+  subjects=str(sorted(list(subjects_offered(records))))
+  average=average_per_student(records)
+  top_name,top_avg=top_scorer(records)
+  passed=str(passing_students(records))
+
+  averagetext=""
+  for name,avg in sorted(average.items()):
+    averagetext+="{name}:{avg}"
+  return f"""STUDENT report
+total records:{total}
+subjects:{subjects}
+student_Average:{avg_text}
+
+top_Scorer:{top_name} {top_avg}
+ passing_Students:{passed}"""
